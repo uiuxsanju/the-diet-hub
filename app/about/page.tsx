@@ -2,45 +2,55 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { CONFIG, wa } from "@/lib/config";
 import { SPECIALITIES } from "@/lib/data";
-import { MapPin, Phone, Clock, Instagram, Mail, Leaf, ShieldCheck, Users } from "lucide-react";
+import {
+  MapPin, Phone, Clock, Instagram, Mail, Leaf, CheckCircle2, Eye, Target, Store,
+} from "lucide-react";
 
 export const metadata = { title: "About — THE DIET HUB Kadapa" };
 
-const VALUES = [
-  { Icon: Leaf, t: "Natural, always", p: "No chemicals, no preservatives, no colour. Fresh ingredients bought and cooked the same day." },
-  { Icon: ShieldCheck, t: "Guided by science", p: "Plans follow nutrition principles, not fad diets or crash cycles." },
-  { Icon: Users, t: "For every age", p: "Children, working adults, expecting mothers and elders — the plan changes, the care doesn't." },
+const WHY_US = [
+  "Freshly prepared every day",
+  "Balanced and nutritious meals",
+  "High-quality ingredients",
+  "Hygienic food preparation",
+  "Affordable meal plans",
+  "Friendly and reliable service",
 ];
 
 export default function About() {
   return (
     <div className="mx-auto w-[min(1080px,94%)] py-14">
+      {/* Hero */}
       <Reveal>
         <p className="eyebrow mb-3">About us</p>
         <h1 className="font-display max-w-3xl text-4xl font-bold leading-[1.1] sm:text-5xl">
-          Good food… good health… good life.
+          Welcome to THE DIET HUB — your trusted destination for healthy,
+          fresh and nutritious meals.
         </h1>
         <p className="mt-4 text-xl font-semibold text-leaf-deep dark:text-leaf">
           {CONFIG.taglineTe}
         </p>
       </Reveal>
 
+      {/* Intro + specialities */}
       <Reveal delay={0.08}>
         <div className="mt-10 grid gap-8 border-t border-line pt-10 lg:grid-cols-2">
           <div className="space-y-4 leading-relaxed text-ink-soft dark:text-muted-fg">
             <p>
-              THE DIET HUB started in Kadapa with one belief: healthy eating should not mean bland
-              food, expensive powders or a diet you abandon in a week.
+              At THE DIET HUB, our mission is to make healthy eating simple, delicious
+              and affordable. We believe good nutrition is the key to a healthier and
+              happier life.
             </p>
             <p>
-              We begin every relationship with a free health assessment — your age, weight, height,
-              routine, medical history and what you actually enjoy eating. Only then do we build a
-              plan. That plan gets cooked fresh in our kitchen with low oil, low spice and honest
-              portions, and it changes as your body changes.
+              Every meal is freshly prepared using carefully selected ingredients, with
+              a focus on quality, hygiene and balanced nutrition. We are committed to
+              serving wholesome meals that help you reach your health goals without
+              compromising on taste.
             </p>
             <p>
-              Alongside the meal plans we make cold-pressed juices and workout smoothies daily —
-              the same rule applies to all of it: nothing added that does not belong.
+              Whether you&apos;re looking to lose weight, gain weight, maintain a
+              healthy lifestyle, or simply enjoy nutritious food, THE DIET HUB offers
+              meal plans designed to fit your needs.
             </p>
           </div>
 
@@ -58,19 +68,109 @@ export default function About() {
         </div>
       </Reveal>
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-3">
-        {VALUES.map(({ Icon, t, p }, i) => (
-          <Reveal key={t} delay={i * 0.06}>
-            <div className="card-surface h-full p-6">
-              <Icon size={22} strokeWidth={1.75} className="text-leaf" />
-              <h3 className="font-display mt-4 text-lg font-bold">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-fg">{p}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
+      {/* Why choose us */}
       <Reveal delay={0.1}>
+        <section className="mt-14 border-t border-line pt-12">
+          <p className="eyebrow mb-3">Why choose us</p>
+          <h2 className="font-display text-3xl font-bold">
+            Healthy food, done properly.
+          </h2>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {WHY_US.map((item) => (
+              <div key={item} className="card-surface flex items-center gap-3 p-5">
+                <CheckCircle2 size={19} strokeWidth={1.75} className="shrink-0 text-leaf" />
+                <span className="text-sm font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Vision & Mission */}
+      <Reveal delay={0.12}>
+        <section className="mt-14 border-t border-line pt-12">
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="card-surface p-7">
+              <Eye size={22} strokeWidth={1.75} className="text-leaf" />
+              <h3 className="font-display mt-4 text-lg font-bold">Our vision</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-fg">
+                To inspire healthier lifestyles by making nutritious food accessible to
+                everyone.
+              </p>
+            </div>
+            <div className="card-surface p-7">
+              <Target size={22} strokeWidth={1.75} className="text-leaf" />
+              <h3 className="font-display mt-4 text-lg font-bold">Our mission</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-fg">
+                To serve fresh, delicious and balanced meals that support the health
+                and well-being of our community.
+              </p>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Founder */}
+      <Reveal delay={0.14}>
+        <section className="mt-14 border-t border-line pt-12">
+          <div className="text-center">
+            <p className="eyebrow mb-3">Meet the founder</p>
+            <h2 className="font-display text-3xl font-bold">
+              The person behind the kitchen.
+            </h2>
+
+            <img
+              src="/images/founder-sravani.png"
+              alt="Uppala Sravani, Founder of THE DIET HUB"
+              className="mx-auto mt-8 w-56 sm:w-64"
+            />
+
+            <p className="font-display mt-5 text-xl font-bold">Uppala Sravani</p>
+            <p className="text-sm text-muted-fg">Founder &amp; Owner, THE DIET HUB</p>
+
+            <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-ink-soft dark:text-muted-fg">
+              Every plan we make begins with a conversation, not a chart — because no
+              two bodies, and no two appetites, are the same. I taste every menu
+              myself before it reaches you, and that will never change no matter how
+              big we grow.
+            </p>
+          </div>
+
+          <div className="card-surface mt-8 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex gap-3">
+              <Store size={22} strokeWidth={1.75} className="mt-0.5 shrink-0 text-leaf" />
+              <div>
+                <h3 className="font-display text-lg font-bold">Franchise opportunities open</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-fg">
+                  THE DIET HUB is expanding beyond Kadapa. If you&apos;d like to bring the
+                  same natural, cooked-fresh diet food to your city, we&apos;d love to talk.
+                </p>
+              </div>
+            </div>
+            <a
+              href={wa("Hi The Diet Hub! I'm interested in a franchise opportunity.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0"
+            >
+              <Button variant="wa" size="lg">Enquire about franchise</Button>
+            </a>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Tagline banner */}
+      <Reveal delay={0.16}>
+        <div className="mt-14 border-t border-line pt-10 text-center">
+          <p className="font-display text-xl font-bold sm:text-2xl">
+            THE DIET HUB <span className="text-leaf">·</span> Eat Healthy. Live Better.
+          </p>
+        </div>
+      </Reveal>
+
+      {/* Visit us */}
+      <Reveal delay={0.18}>
         <section className="mt-14 border-t border-line pt-12">
           <p className="eyebrow mb-3">Visit us</p>
           <h2 className="font-display text-3xl font-bold">Come and talk to us.</h2>
