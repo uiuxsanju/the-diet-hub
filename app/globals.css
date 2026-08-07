@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THE DIET HUB — Kadapa
+   This business communicates in charts: calorie tables, macro
+   columns, numbered plans. So the design is a clinical chart
+   made warm — ruled rows, clear numerals, fresh leaf greens.
+   Palette: greens from the logo, top to bottom. The only non-green
+   is the red non-veg mark, which is a required food marking.
+   ============================================================ */
+
+@theme {
+  /* Real brand colours, sampled from the client's own logo */
+  --color-brand-orange: #ff7400;
+  --color-brand-blue: #012586;
+  --color-brand-green: #3c8d00;
+  --color-brand-deep-green: #005701;
+
+  --color-leaf: #3c8d00;
+  --color-leaf-deep: #005701;
+  --color-leaf-darkest: #003c00;
+  --color-leaf-soft: #eaf3e2;
+  --color-leaf-mid: #4a9e12;
+  --color-lime: #ff7400;      /* carrot/lime accent now maps to brand orange */
+  --color-moss: #5c8a3f;
+  --color-blue: #012586;
+  --color-berry: #9b2242;     /* non-veg mark only */
+  --color-ink: #17231b;
+  --color-ink-soft: #45544a;
+  --color-wa: #25a35a;
+  --font-display: var(--font-display-face);
+  --font-body: var(--font-body-face);
+  --font-num: var(--font-num-face);
+}
+
+:root {
+  --bg: #f7faf5;        /* faint leaf wash */
+  --card: #ffffff;
+  --line: #d9e4d6;
+  --rule: #17231b;
+  --fg: #17231b;
+  --muted: #6b7a6f;
+}
+
+.dark {
+  --bg: #101711;
+  --card: #17211a;
+  --line: #2b3a2f;
+  --rule: #e9f0e7;
+  --fg: #e9f0e7;
+  --muted: #93a396;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.018em;
+}
+
+/* numerals — calorie counts, macros, prices, phone numbers */
+.font-num {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.text-muted-fg { color: var(--muted); }
+.border-line   { border-color: var(--line); }
+.bg-surface    { background: var(--card); }
+.bg-page       { background: var(--bg); }
+.text-fg       { color: var(--fg); }
+
+.card-surface {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+/* ---------- SIGNATURE: the chart ----------
+   Every section that carries numbers is presented as a chart —
+   a green header bar, ruled rows, numerals hard right. */
+.chart {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--card);
+}
+.chart-head {
+  background: var(--color-leaf-deep);
+  color: #f2f8f0;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 18px;
+}
+.chart-row + .chart-row { border-top: 1px solid var(--line); }
+.chart-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 18px;
+}
+.chart-row:nth-child(odd) { background: color-mix(in srgb, var(--color-leaf-soft) 42%, transparent); }
+.dark .chart-row:nth-child(odd) { background: rgba(255,255,255,0.022); }
+
+/* section eyebrow */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-num);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-leaf);
+}
+.eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-lime);
+}
+
+/* small caption */
+.label {
+  font-family: var(--font-num);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* veg / non-veg marks, drawn the way Indian packaging draws them */
+.diet-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid currentColor;
+  border-radius: 2px;
+}
+.diet-mark::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.photo-mount {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--card);
+}
+
+::selection { background: var(--color-leaf); color: #fff; }
+
+*:focus-visible {
+  outline: 2px solid var(--color-leaf);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* macro rail on product cards — ruled like the calorie chart */
+.macro-rail {
+  border-top: 2px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
+}
+.macro-rail > div + div { border-left: 1px solid var(--line); }
