@@ -5,14 +5,14 @@ export const CONFIG = {
   taglineTe: "సరైన ఆహారం... సంపూర్ణమైన జీవితం!",
 
   city: "Kadapa",
-  address: "Near VJ Junction, Near More Super Market, Kadapa, Andhra Pradesh",
+  address: "Near Y Junction, Near More Super Market, Kadapa, Andhra Pradesh",
 
   // primary WhatsApp / call line
   whatsapp: "919703245246",
-  phoneDisplay: "+91 97032 45246",
+  phoneDisplay: "+91 9703245246",
   // second line
   whatsapp2: "919642245246",
-  phoneDisplay2: "+91 96422 45246",
+  phoneDisplay2: "+91 9642245246",
 
   hours: "6:00 AM – 9:00 PM, all days",
   email: "thediethub.kadapa@gmail.com",
@@ -20,7 +20,7 @@ export const CONFIG = {
   instagramHandle: "@thediethub_kadapa",
 
   mapEmbed:
-    "https://www.google.com/maps?q=More%20Supermarket%20VJ%20Junction%20Kadapa&output=embed",
+    "https://www.google.com/maps?q=More%20Supermarket%20Y%20Junction%20Kadapa&output=embed",
 } as const;
 
 /** WhatsApp deep link for the primary line. */

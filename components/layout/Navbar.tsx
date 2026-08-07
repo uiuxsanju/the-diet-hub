@@ -98,7 +98,7 @@ export function Logo({ compact = false }: { compact?: boolean }) {
     <img
       src="/icon-mark.png"
       alt="The Diet Hub — Eat Right, Live Right, Feel Right"
-      className={compact ? "h-12 w-auto" : "h-16 w-auto sm:h-20"}
+      className={compact ? "h-20 w-auto" : "h-20 w-auto sm:h-20"}
     />
   );
 }
