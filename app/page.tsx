@@ -8,6 +8,7 @@ import {
 } from "@/lib/data";
 import { PRODUCTS } from "@/lib/products";
 import { ProductCard } from "@/components/menu/ProductCard";
+import { WeeklyNonVeg } from "@/components/home/WeeklyNonVeg";
 
 const POPULAR = PRODUCTS.filter((p) => p.popular).slice(0, 8);
 import { ArrowRight, Leaf, ShieldCheck, MapPin, Clock, Phone } from "lucide-react";
@@ -334,6 +335,10 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <div className="mx-auto w-[min(1180px,94%)]">
+        <WeeklyNonVeg />
+      </div>
     </>
   );
 }
