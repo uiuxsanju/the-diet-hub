@@ -1,112 +1,147 @@
 // ============================================================
 // THE DIET HUB — subscription plans
-// Edit prices, meals and features here.
+// Prices are fixed business figures — do not derive or round them.
 // ============================================================
 
 export type Plan = {
   id: string;
   name: string;
-  nameTe: string;
-  price: number;
-  strike?: number;
-  per: string;
   days: number;
   mealsPerDay: number;
-  perDay: string;
-  flag?: string;
+  priceVeg: number;
+  priceNonVeg: number;
+  priceLineVeg: string;
+  priceLineNonVeg: string;
+  perDayLineVeg?: string;
+  perDayLineNonVeg?: string;
+  mealsLine?: string;
+  mealsSubLine?: string;
+  badge?: { icon: string; label: string };
   hot?: boolean;
-  summary: string;
-  includes: string[];
-  bestFor: string;
+  benefitsVeg: string[];
+  benefitsNonVeg: string[];
+  cta: string;
 };
 
 export const PLANS: Plan[] = [
   {
     id: "trial-day",
     name: "Trial Day",
-    nameTe: "ట్రయల్ డే",
-    price: 199,
-    per: "one day",
     days: 1,
     mealsPerDay: 3,
-    perDay: "₹199 / day",
-    summary: "One full day — breakfast, lunch and dinner. See whether our food suits you before committing.",
-    includes: [
-      "Breakfast + lunch + dinner",
-      "Calorie-counted portions",
-      "Choose veg or non-veg",
-      "Delivered to your door",
+    priceVeg: 399,
+    priceNonVeg: 499,
+    priceLineVeg: "₹399 / day",
+    priceLineNonVeg: "₹499 / day",
+    mealsLine: "3 meals/day",
+    mealsSubLine: "Breakfast • Lunch • Dinner",
+    benefitsVeg: [
+      "Fresh vegetarian meals",
+      "Calorie-conscious portions",
+      "Home-style preparation",
+      "Doorstep delivery",
     ],
-    bestFor: "Trying us out",
+    benefitsNonVeg: [
+      "Fresh non-vegetarian meals",
+      "Protein-focused portions",
+      "Home-style preparation",
+      "Doorstep delivery",
+    ],
+    cta: "Start Trial",
   },
   {
     id: "plan-3day",
     name: "3-Day Plan",
-    nameTe: "3 రోజుల ప్లాన్",
-    price: 399,
-    strike: 597,
-    per: "3 days",
     days: 3,
     mealsPerDay: 3,
-    perDay: "₹133 / day",
-    flag: "SAVE ₹198",
-    summary: "Three days of breakfast, lunch and dinner. The plan from our posters — the easiest way to start.",
-    includes: [
-      "9 meals across 3 days",
-      "Roughly 1,300–1,600 kcal a day",
-      "Rotating menu, no repeats",
-      "Veg ₹399 · Non-veg ₹499",
+    priceVeg: 1197,
+    priceNonVeg: 1497,
+    priceLineVeg: "₹1,197 / 3 days",
+    priceLineNonVeg: "₹1,497 / 3 days",
+    perDayLineVeg: "₹399/day",
+    perDayLineNonVeg: "₹499/day",
+    benefitsVeg: [
+      "9 meals",
+      "Breakfast + Lunch + Dinner",
+      "Rotating menu",
+      "Freshly prepared",
+      "Doorstep delivery",
     ],
-    bestFor: "First-timers",
+    benefitsNonVeg: [
+      "9 meals",
+      "Breakfast + Lunch + Dinner",
+      "Rotating non-veg menu",
+      "Protein-rich meal options",
+      "Freshly prepared",
+      "Doorstep delivery",
+    ],
+    cta: "Choose Plan",
   },
   {
     id: "plan-7day",
     name: "7-Day Plan",
-    nameTe: "7 రోజుల ప్లాన్",
-    price: 899,
-    strike: 1393,
-    per: "7 days",
     days: 7,
     mealsPerDay: 3,
-    perDay: "₹128 / day",
-    flag: "MOST POPULAR",
+    priceVeg: 2793,
+    priceNonVeg: 3493,
+    priceLineVeg: "₹2,793 / 7 days",
+    priceLineNonVeg: "₹3,493 / 7 days",
+    perDayLineVeg: "₹399/day",
+    perDayLineNonVeg: "₹499/day",
+    badge: { icon: "⭐", label: "MOST POPULAR" },
     hot: true,
-    summary: "A full week, breakfast to dinner, with one follow-up call to adjust the plan mid-week.",
-    includes: [
-      "21 meals across 7 days",
-      "No menu repetition all week",
-      "Mid-week follow-up call",
-      "Free health assessment first",
-      "Pause or swap days anytime",
+    benefitsVeg: [
+      "21 meals",
+      "Variety of vegetarian dishes",
+      "Calorie-conscious portions",
+      "Free initial assessment",
+      "WhatsApp support",
     ],
-    bestFor: "Building the habit",
+    benefitsNonVeg: [
+      "21 meals",
+      "Variety of chicken & fish-based meals",
+      "Balanced protein portions",
+      "Calorie-conscious meals",
+      "Free initial assessment",
+      "WhatsApp support",
+    ],
+    cta: "Choose Plan",
   },
   {
     id: "plan-monthly",
-    name: "Monthly Programme",
-    nameTe: "నెలవారీ ప్రోగ్రామ్",
-    price: 3499,
-    strike: 3999,
-    per: "30 days",
+    name: "Monthly Plan",
     days: 30,
     mealsPerDay: 3,
-    perDay: "₹117 / day",
-    flag: "BEST VALUE",
-    summary: "A full month with a personalised calorie target, weekly weigh-ins and continuous support.",
-    includes: [
-      "90 meals across 30 days",
-      "Personalised calorie & macro target",
-      "Weekly weigh-in and plan review",
-      "WhatsApp support throughout",
-      "Diabetes / BP guidance included",
+    priceVeg: 11970,
+    priceNonVeg: 14970,
+    priceLineVeg: "₹11,970 / 30 days",
+    priceLineNonVeg: "₹14,970 / 30 days",
+    perDayLineVeg: "₹399/day",
+    perDayLineNonVeg: "₹499/day",
+    badge: { icon: "💚", label: "BEST VALUE" },
+    benefitsVeg: [
+      "90 meals",
+      "Personalised meal planning",
+      "Weekly menu planning",
+      "Calorie & macro-focused meals",
+      "WhatsApp support",
+      "Doorstep delivery",
     ],
-    bestFor: "Real, lasting change",
+    benefitsNonVeg: [
+      "90 meals",
+      "Personalised non-veg meal planning",
+      "Protein & macro-focused meals",
+      "Weekly menu planning",
+      "WhatsApp support",
+      "Doorstep delivery",
+    ],
+    cta: "Start Monthly Plan",
   },
 ];
 
 export const PLAN_NOTES = [
   "Every plan starts with a free health assessment.",
-  "Veg and non-veg options on all plans — non-veg adds ₹100 per 3 days.",
+  "Toggle Veg / Non-Veg above to see exact pricing for each.",
   "Tell us your allergies and dislikes; the menu is adjusted, not swapped for a template.",
   "Pause, shift days or stop anytime — just message us a day ahead.",
 ];

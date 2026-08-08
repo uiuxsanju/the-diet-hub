@@ -8,6 +8,122 @@
 const px = (id: string) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=700&fm=webp`;
 
+
+// ============================================================
+// VERIFIED REAL-FOOD PHOTO OVERRIDES
+// ============================================================
+const pexels = (id: number) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=900&fm=webp`;
+
+export const IMAGE_OVERRIDES: Record<string, { image: string; source?: string }> = {
+  "ragi-upma-curd": { image: pexels(20408458), source: "Pexels" },
+  "oats-fruit-bowl": { image: pexels(4725735), source: "Pexels" },
+  "pesarattu": { image: pexels(35351659), source: "Pexels" },
+  "veg-poha": { image: pexels(36715858), source: "Pexels" },
+  "seasonal-fruit-bowl": { image: pexels(15766427), source: "Pexels" },
+  "dry-fruits-mix": { image: pexels(9026809), source: "Pexels" },
+  "sprouts-cup": { image: pexels(9012028), source: "Pexels" },
+  "brown-rice-thali": { image: pexels(5863605), source: "Pexels" },
+  "quinoa-buddha-bowl": { image: pexels(6109109), source: "Pexels" },
+  "paneer-power-box": { image: pexels(12669168), source: "Pexels" },
+  "sprouts-chaat": { image: pexels(9012028), source: "Pexels" },
+  "roasted-chana": { image: pexels(9026809), source: "Pexels" },
+  "rainbow-salad": { image: pexels(6109109), source: "Pexels" },
+  "millet-dinner-box": { image: pexels(35041645), source: "Pexels" },
+  "millet-khichdi": { image: pexels(35041645), source: "Pexels" },
+  "veg-soup-salad": { image: pexels(6109109), source: "Pexels" },
+  "pre-banana-oats": { image: pexels(4051764), source: "Pexels" },
+  "pre-banana-peanut": { image: pexels(4051764), source: "Pexels" },
+  "pre-dates-energy": { image: pexels(10066808), source: "Pexels" },
+  "pre-apple-oats": { image: pexels(4051764), source: "Pexels" },
+  "pre-mango-energy": { image: pexels(14930490), source: "Pexels" },
+  "pre-berry": { image: pexels(4051768), source: "Pexels" },
+  "pre-coffee-banana": { image: pexels(4051764), source: "Pexels" },
+  "pre-pineapple-mint": { image: pexels(10066808), source: "Pexels" },
+  "pre-watermelon": { image: pexels(14930490), source: "Pexels" },
+  "pre-beetroot-energy": { image: pexels(34692627), source: "Pexels" },
+  "post-greek-banana": { image: pexels(4051764), source: "Pexels" },
+  "post-chocolate-protein": { image: pexels(3028139), source: "Pexels" },
+  "post-mango-yogurt": { image: pexels(14930490), source: "Pexels" },
+  "post-strawberry-protein": { image: pexels(4051768), source: "Pexels" },
+  "post-pb-oats": { image: pexels(4051764), source: "Pexels" },
+  "post-avocado": { image: pexels(37283271), source: "Pexels" },
+  "post-banana-chia": { image: pexels(4051764), source: "Pexels" },
+  "post-papaya": { image: pexels(14930490), source: "Pexels" },
+  "post-mixed-fruit-protein": { image: pexels(12049998), source: "Pexels" },
+  "post-spinach-power": { image: pexels(37283271), source: "Pexels" },
+  "juice-beetroot": { image: pexels(31012767), source: "Pexels" },
+  "juice-green-detox": { image: pexels(37283271), source: "Pexels" },
+  "juice-orange": { image: pexels(14930490), source: "Pexels" },
+  "juice-watermelon": { image: pexels(11009203), source: "Pexels" },
+  "juice-pineapple-mint": { image: pexels(5146439), source: "Pexels" },
+  "buttermilk": { image: pexels(35267286), source: "Pexels" },
+  "boiled-eggs": { image: pexels(35267285), source: "Pexels" },
+  "millet-veg-pulao": { image: pexels(35041645), source: "Pexels" },
+  "quinoa-veg-pulao": { image: pexels(35041645), source: "Pexels" },
+  "foxtail-millet-curd-rice": { image: pexels(35267286), source: "Pexels" },
+  "little-millet-khichdi": { image: pexels(35041645), source: "Pexels" },
+  "grilled-chicken-wrap": { image: pexels(28442524), source: "Pexels" },
+  "paneer-tikka-wrap": { image: pexels(15913640), source: "Pexels" },
+  "sprouts-veggie-sandwich": { image: pexels(9012028), source: "Pexels" },
+  "pb-banana-sandwich": { image: pexels(20605002), source: "Pexels" },
+  "bhavna-rice-spicy-chicken": { image: pexels(34159112), source: "Pexels" },
+  "ragi-chapati-fish-veg-curry": { image: pexels(23947912), source: "Pexels" },
+  "veg-bhavna-rice-chicken-keema-balls": { image: pexels(34159112), source: "Pexels" },
+  "bhavna-rice-mint-chicken-fry": { image: pexels(34159112), source: "Pexels" },
+  "brown-rice-chicken-curry-raita": { image: pexels(5863605), source: "Pexels" },
+  "brown-rice-fish-fry-chinna-masala": { image: pexels(23947912), source: "Pexels" },
+  "red-rice-chicken-fry": { image: pexels(34159112), source: "Pexels" },
+  "sangati-millet-chicken-keema": { image: pexels(34159112), source: "Pexels" },
+  "sangati-ragi-andhra-chicken-curry": { image: pexels(7353487), source: "Pexels" },
+  "sangati-korra-chicken-pulusu": { image: pexels(7353487), source: "Pexels" },
+  "sangati-samalu-fish-curry": { image: pexels(23947912), source: "Pexels" },
+  "sangati-arikela-chicken-pepper-curry": { image: pexels(7353487), source: "Pexels" },
+  "sangati-udalu-chicken-veg-curry": { image: pexels(5863605), source: "Pexels" },
+  "sangati-mixed-millet-chicken-keema": { image: pexels(34159112), source: "Pexels" },
+  "sangati-korra-samalu-egg-curry": { image: pexels(35267285), source: "Pexels" },
+  "overnight-oats-classic": { image: pexels(4725735), source: "Pexels" },
+  "overnight-oats-chocolate-protein": { image: pexels(4725735), source: "Pexels" },
+  "overnight-oats-mango": { image: pexels(14930490), source: "Pexels" },
+  "energy-balls-date-nut": { image: pexels(9026809), source: "Pexels" },
+  "protein-pancakes": { image: pexels(14263510), source: "Pexels" },
+  "ragi-halwa-sugarfree": { image: pexels(20446409), source: "Pexels" },
+  "chia-pudding": { image: pexels(7469649), source: "Pexels" },
+  "detox-water-lemon-ginger": { image: pexels(2705644), source: "Pexels" },
+  "detox-water-jeera-ajwain": { image: pexels(2705644), source: "Pexels" },
+  "plan-3day-veg": { image: pexels(7937049), source: "Pexels" },
+  "plan-3day-nonveg": { image: pexels(34159112), source: "Pexels" },
+  "plan-weekly": { image: pexels(7937049), source: "Pexels" },
+  "plan-weight-loss-month": { image: pexels(1555814), source: "Pexels" },
+  "sangati-bajra": { image: pexels(1311771), source: "Pexels" },
+  "sangati-ragi": { image: pexels(8108020), source: "Pexels" },
+  "sangati-foxtail": { image: pexels(1311771), source: "Pexels" },
+  "sangati-little-millet": { image: pexels(8108020), source: "Pexels" },
+  "sangati-kodo-millet": { image: pexels(1311771), source: "Pexels" },
+  "sangati-barnyard-millet": { image: pexels(8108020), source: "Pexels" },
+  "sangati-mixed-millet": { image: pexels(1311771), source: "Pexels" },
+  "sangati-ragi-bajra": { image: pexels(8108020), source: "Pexels" },
+  "sangati-foxtail-little-millet": { image: pexels(1311771), source: "Pexels" },
+  "sangati-mixed-special": { image: pexels(8108020), source: "Pexels" },
+  "curry-chicken-keema": { image: pexels(7353487), source: "Pexels" },
+  "curry-andhra-chicken": { image: pexels(7353487), source: "Pexels" },
+  "curry-chicken-palak": { image: pexels(7353487), source: "Pexels" },
+  "curry-fish": { image: pexels(23947912), source: "Pexels" },
+  "curry-chicken-pepper": { image: pexels(7353487), source: "Pexels" },
+  "curry-chicken-vegetable": { image: pexels(5863605), source: "Pexels" },
+  "fish-grilled": { image: pexels(6046671), source: "Pexels" },
+  "curry-egg": { image: pexels(35267285), source: "Pexels" },
+  "chicken-grilled": { image: pexels(28442524), source: "Pexels" },
+  "combo-bajra-chicken": { image: pexels(7353487), source: "Pexels" },
+  "combo-ragi-fish": { image: pexels(23947912), source: "Pexels" },
+  "combo-foxtail-chicken-pepper": { image: pexels(7353487), source: "Pexels" },
+  "combo-samalu-egg": { image: pexels(35267285), source: "Pexels" },
+  "combo-mixed-millet-grilled-chicken": { image: pexels(28442524), source: "Pexels" },
+  "combo-ragi-bajra-grilled-fish": { image: pexels(23947912), source: "Pexels" },
+  "free-assessment": { image: pexels(7937049), source: "Pexels" },
+  "personalised-diet-plan": { image: pexels(7937049), source: "Pexels" },
+};
+
 export type Diet = "veg" | "vegan" | "egg" | "nonveg";
 
 export type CatKey =
@@ -89,7 +205,10 @@ export type Product = {
   enquiryOnly?: boolean;
 };
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS: Product[] =
+ [
+
+  
   // ======================= BREAKFAST · 300–350 kcal =======================
   {
     id: "ragi-upma-curd",
@@ -1240,14 +1359,14 @@ export const PRODUCTS: Product[] = [
     bestTime: "Lunch or dinner",
     storage: "Best eaten fresh, same day",
   },
-  {
+ {
     id: "sangati-ragi-andhra-chicken-curry",
     name: "Ragi Sangati with Andhra Chicken Curry",
     nameTe: "రాగి సంగటి + ఆంధ్ర చికెన్ కర్రీ",
     desc: "Traditional ragi sangati with spicy Andhra chicken curry.",
     cats: ["combo-meals", "millet-sangati", "non-veg-curries"],
     diet: "nonveg", price: 199, serving: "1 sangati + curry", prepTime: "Fresh cooked", kcalBand: "420-450 kcal",
-    img: px("8108020"),
+    img: "https://images.pexels.com/photos/35532821/pexels-photo-35532821.jpeg?auto=compress&cs=tinysrgb&h=1200&w=1200&fit=crop",
     ingredients: ["Ragi sangati", "Andhra-style chicken curry"],
     ingredientsTe: "రాగి సంగటి, ఆంధ్ర చికెన్ కర్రీ",
     allergens: [],
@@ -2111,6 +2230,7 @@ export const PRODUCTS: Product[] = [
     bestTime: "Lunch or dinner",
     storage: "Best eaten fresh, same day",
   },
+  
 
 
   // ======================= NUTRITION CONSULTATION =======================
@@ -2157,7 +2277,13 @@ export const PRODUCTS: Product[] = [
   },
 
 ];
-
+// Apply verified real-photo overrides on top of the base catalogue.
+// Every other file keeps reading p.img exactly as before — nothing
+// else in the app needs to change.
+for (const p of PRODUCTS) {
+  const override = IMAGE_OVERRIDES[p.id];
+  if (override) p.img = override.image;
+}
 export const getProduct = (id: string) => PRODUCTS.find((p) => p.id === id);
 
 export const byCategory = (k: CatKey) =>
