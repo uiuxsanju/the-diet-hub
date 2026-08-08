@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CALORIE_GUIDE, CALORIE_TOTAL, SAMPLE_DAY, HYDRATION_NOTE } from "@/lib/data";
 import { wa } from "@/lib/config";
 import { Droplet, Leaf, HeartPulse } from "lucide-react";
+import { NutritionCalculator } from "@/components/calorie-guide/NutritionCalculator";
 
 export const metadata = { title: "Daily Calorie Guide — THE DIET HUB Kadapa" };
 
@@ -23,6 +24,8 @@ export default function CalorieGuide() {
           లక్ష్యం మీద ఆధారపడి ఉంటాయి.
         </p>
       </Reveal>
+
+      <NutritionCalculator />
 
       <div className="mt-11 grid gap-8 lg:grid-cols-2">
         <Reveal>
