@@ -119,22 +119,33 @@ export default function About() {
             <h2 className="font-display text-3xl font-bold">
               The person behind the kitchen.
             </h2>
+          </div>
 
-            <img
-              src="/images/founder-sravani.png"
-              alt="Uppala Sravani, Founder of THE DIET HUB"
-              className="mx-auto mt-8 w-56 sm:w-64"
-            />
+          <div className="mt-10 grid items-center gap-8 sm:grid-cols-[220px_1fr]">
+            <div className="mx-auto text-center sm:mx-0 sm:text-left">
+              <img
+                src="/images/founder-sravani.png"
+                alt="Uppala Sravani, Founder of THE DIET HUB"
+                className="mx-auto w-48 sm:mx-0 sm:w-full"
+              />
+              <p className="font-display mt-4 text-lg font-bold">Uppala Sravani</p>
+              <p className="text-sm text-muted-fg">Founder &amp; Owner</p>
+            </div>
 
-            <p className="font-display mt-5 text-xl font-bold">Uppala Sravani</p>
-            <p className="text-sm text-muted-fg">Founder &amp; Owner, THE DIET HUB</p>
-
-            <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-ink-soft dark:text-muted-fg">
-              Every plan we make begins with a conversation, not a chart — because no
-              two bodies, and no two appetites, are the same. I taste every menu
-              myself before it reaches you, and that will never change no matter how
-              big we grow.
-            </p>
+            <div className="card-surface p-7 sm:p-9">
+              <span aria-hidden="true" className="font-display block text-5xl leading-none text-leaf/30">
+                &ldquo;
+              </span>
+              <p className="font-display -mt-3 text-lg leading-relaxed text-ink sm:text-xl dark:text-fg">
+                Every plan we make begins with a conversation, not a chart — because
+                no two bodies, and no two appetites, are the same. I taste every menu
+                myself before it reaches you, and that will never change no matter
+                how big we grow.
+              </p>
+              <p className="mt-5 text-sm font-semibold text-leaf-deep dark:text-leaf">
+                — Uppala Sravani, Founder
+              </p>
+            </div>
           </div>
 
           <div className="card-surface mt-8 flex flex-col items-start gap-4 p-7 sm:flex-row sm:items-center sm:justify-between">

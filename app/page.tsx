@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
@@ -18,22 +19,31 @@ export default function Home() {
     <>
       {/* ---------------- hero — poster style, matches the Instagram brand ---------------- */}
       <section className="relative overflow-hidden bg-ink text-white">
-        <div className="mx-auto grid w-[min(1180px,94%)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-24">
+        <Image
+          src="/images/hero-meal.png"
+          alt="Freshly cooked diet meal from The Diet Hub"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-ink/10" />
+
+        <div className="relative mx-auto grid w-[min(1180px,94%)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_.95fr] lg:py-24">
           <div>
             <p className="flex items-center gap-2.5 font-num text-[11px] font-bold uppercase tracking-[0.24em]" style={{ color: "var(--color-brand-orange)" }}>
               <span className="h-px w-7" style={{ background: "var(--color-brand-orange)" }} />
               Uppala&apos;s · {CONFIG.city}
             </p>
 
-            <h1 className="font-display mt-5 text-[2.6rem] font-bold leading-[1.05] sm:text-5xl lg:text-[3.5rem]">
-              <span style={{ color: "var(--color-brand-orange)" }}>Eat right.</span>{" "}
-              <span style={{ color: "var(--color-brand-blue)" }} className="brightness-125">Live right.</span>{" "}
-              <span style={{ color: "var(--color-brand-green)" }} className="brightness-150">Feel right.</span>
+            <h1 className="font-display mt-5 text-[2.6rem] font-bold leading-[1.05] text-white sm:text-5xl lg:text-[3.5rem]">
+              Eat right. Live right.{" "}
+              <span style={{ color: "var(--color-brand-orange)" }}>Feel right.</span>
             </h1>
 
-            <p className="mt-4 text-lg font-semibold text-[#cfe0cb]">{CONFIG.taglineTe}</p>
+            <p className="mt-4 text-lg font-semibold text-[#f0e9dd]">{CONFIG.taglineTe}</p>
 
-            <p className="mt-5 max-w-xl leading-relaxed text-[#b9c4b6]">
+            <p className="mt-5 max-w-xl leading-relaxed text-[#d8dcd3]">
               Personalised diet plans built around your age, weight, lifestyle and health
               condition — fresh, low-oil food cooked daily and delivered across {CONFIG.city}.
             </p>
@@ -51,45 +61,19 @@ export default function Home() {
               </Link>
             </div>
 
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-px overflow-hidden rounded-xl border border-white/12 bg-white/12">
+            <dl className="mt-10 grid max-w-lg grid-cols-3 overflow-hidden rounded-xl border border-white/20 bg-black/35 backdrop-blur-md">
               {[
-                ["6 AM – 9 PM", "Open daily", "var(--color-brand-orange)"],
-                ["40+", "Menu items", "var(--color-brand-blue)"],
-                ["100%", "Natural food", "var(--color-brand-green)"],
-              ].map(([v, l, c]) => (
-                <div key={l} className="bg-ink px-3 py-4 text-center">
-                  <dt className="font-num text-lg font-bold" style={{ color: c }}>{v}</dt>
-                  <dd className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-[#8f9c8c]">{l}</dd>
+                ["6 AM – 9 PM", "Open daily"],
+                ["40+", "Menu items"],
+                ["100%", "Natural food"],
+              ].map(([v, l], i) => (
+                <div key={l} className={`px-3 py-4 text-center ${i > 0 ? "border-l border-white/15" : ""}`}>
+                  <dt className="font-num text-lg font-bold" style={{ color: "var(--color-brand-orange)" }}>{v}</dt>
+                  <dd className="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-white/75">{l}</dd>
                 </div>
               ))}
             </dl>
           </div>
-
-          <Reveal delay={0.1}>
-            {/* poster-style meal card — mirrors the black-tray photography */}
-            <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-[#14170f]">
-              <div className="flex items-center justify-between px-5 py-3" style={{ background: "var(--color-brand-orange)" }}>
-                <span className="font-display text-sm font-bold uppercase tracking-wide text-white">Sample day</span>
-                <span className="font-num text-[11px] font-bold text-white/90">1,200 kcal</span>
-              </div>
-              {SAMPLE_DAY.map((s, i) => (
-                <div key={s.slot} className={`flex items-center gap-3 px-5 py-4 ${i > 0 ? "border-t border-white/8" : ""}`}>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-display text-[15px] font-bold text-white">{s.slot}</p>
-                    <p className="mt-0.5 text-[13px] leading-snug text-[#9aa896]">{s.items.join(" · ")}</p>
-                  </div>
-                  <span className="font-num shrink-0 text-lg font-bold" style={{ color: "var(--color-brand-green)" }}>
-                    {s.kcal}
-                  </span>
-                </div>
-              ))}
-              <div className="border-t border-white/8 px-5 py-3.5">
-                <p className="text-[11px] font-bold uppercase tracking-wide text-[#8f9c8c]">
-                  Every plan is adjusted to your body and goal
-                </p>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
