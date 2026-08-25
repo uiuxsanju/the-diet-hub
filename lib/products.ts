@@ -8,6 +8,7 @@ export type Diet = "veg" | "vegan" | "egg" | "nonveg";
 export type CatKey =
   | "all"
   | "daily-meals"
+  | "combo-meals"
   | "chicken-meals"
   | "special-meals"
   | "diet-meals"
@@ -22,6 +23,7 @@ export type CatKey =
 export const CATEGORIES: { k: CatKey; l: string; te: string }[] = [
   { k: "all",           l: "All Items",                  te: "అన్నీ" },
   { k: "daily-meals",   l: "Daily Meals",                te: "డైలీ మీల్స్" },
+  { k: "combo-meals",   l: "Combo Meals",                te: "కాంబో మీల్స్" },
   { k: "chicken-meals", l: "Chicken Meals",              te: "చికెన్ మీల్స్" },
   { k: "special-meals", l: "Special Meals",              te: "స్పెషల్ మీల్స్" },
   { k: "diet-meals",    l: "Diet Meals (Weight Loss)",   te: "డైట్ మీల్స్ (వెయిట్ లాస్)" },
@@ -40,7 +42,7 @@ export type Nutrition = {
   carbs: number;
   fat: number;
   fibre: number;
-  sugar: number;ragi
+  sugar: number;
   sodium: number;    // mg
   calcium: number;   // mg
   iron: number;      // mg
@@ -65,17 +67,16 @@ export type Product = {
   allergens: string[];
   n: Nutrition;
   bestFor: string[];
-  avoidIf: string[];Ragi
+  avoidIf: string[];
   benefits: string[];
   popular?: boolean;
 };
 
 export const PRODUCTS: Product[] = [
-  // ======================= 1. DAILY MEALS (7 Items) =======================
-
+  // ======================= 1. DAILY MEALS =======================
   {
-    id: "-mudda",
-    name: " Mudda (Ragi Sangati)",
+    id: "ragi-mudda",
+    name: "Ragi Mudda (Ragi Sangati)",
     nameTe: "రాగి ముద్ద (రాగి సంగటి)",
     desc: "Traditional Rayalaseema steamed finger-millet ball. Rich in calcium, iron, and slow-digesting complex carbs.",
     cats: ["daily-meals", "diet-meals"],
@@ -88,18 +89,18 @@ export const PRODUCTS: Product[] = [
     ingredients: ["Finger Millet (Ragi) Flour", "Water", "Rock Salt"],
     ingredientsTe: "రాగి పిండి, నీరు, రాతి ఉప్పు",
     allergens: [],
-    n: { 
-      calories: 170, 
-      protein: 5, 
-      carbs: 34, 
-      fat: 1.5, 
-      fibre: 4.5, 
-      sugar: 0.5, 
-      sodium: 95, 
-      calcium: 210, 
-      iron: 2.8, 
-      potassium: 240, 
-      vitC: 0 
+    n: {
+      calories: 170,
+      protein: 5,
+      carbs: 34,
+      fat: 1.5,
+      fibre: 4.5,
+      sugar: 0.5,
+      sodium: 95,
+      calcium: 210,
+      iron: 2.8,
+      potassium: 240,
+      vitC: 0
     },
     bestFor: ["Diabetes Management", "Weight Loss", "Bone Health", "Sustained Energy"],
     avoidIf: [],
@@ -138,7 +139,6 @@ export const PRODUCTS: Product[] = [
     ],
     popular: true,
   },
- 
   {
     id: "veg-bhavna-rice-chicken-keema-balls",
     name: "Vegetable Bhavana Rice with Chicken Keema Balls",
@@ -266,7 +266,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "వెజ్ మీల్",
     desc: "Wholesome daily vegetarian balanced meal box with rice, dal, mixed veg curry, and curd.",
     cats: ["daily-meals"],
-    diet: "veg", price: 140, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "450–480 kcal",
+    diet: "veg",
+    price: 140,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "450–480 kcal",
     img: "https://i.pinimg.com/736x/13/c6/b8/13c6b80d601de2fff27297afad524e7c.jpg",
     ingredients: ["Rice", "Toor Dal", "Mixed Veg Curry", "Curd", "Salad"],
     ingredientsTe: "రైస్, పప్పు, వెజిటబుల్ కర్రీ, పెరుగు, సలాడ్",
@@ -283,7 +287,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "నాన్-వెజ్ మీల్",
     desc: "Complete daily meal box with rice, homestyle chicken curry, dal, and fresh salad.",
     cats: ["daily-meals"],
-    diet: "nonveg", price: 170, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "500–550 kcal",
+    diet: "nonveg",
+    price: 170,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "500–550 kcal",
     img: "https://i.pinimg.com/1200x/83/5a/7a/835a7a7b3690d98b6e8088fc43ad8968.jpg",
     ingredients: ["Rice", "Chicken Curry", "Dal", "Salad", "Curd"],
     ingredientsTe: "రైస్, చికెన్ కర్రీ, పప్పు, సలాడ్, పెరుగు",
@@ -300,7 +308,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "పనీర్ మీల్",
     desc: "Rich vegetarian protein meal with fresh paneer curry, rice, dal, and fresh salad.",
     cats: ["daily-meals"],
-    diet: "veg", price: 160, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "480–520 kcal",
+    diet: "veg",
+    price: 160,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "480–520 kcal",
     img: "https://i.pinimg.com/736x/9c/ea/92/9cea927f3806f9e74b1c9ac5a3d5db35.jpg",
     ingredients: ["Rice", "Fresh Paneer Curry", "Dal", "Salad", "Curd"],
     ingredientsTe: "రైస్, పనీర్ కర్రీ, పప్పు, సలాడ్, పెరుగు",
@@ -316,7 +328,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ఎగ్ మీల్",
     desc: "Nutritious daily meal box with boiled egg curry, rice, dal, and cooling salad.",
     cats: ["daily-meals"],
-    diet: "egg", price: 150, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "460–490 kcal",
+    diet: "egg",
+    price: 150,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "460–490 kcal",
     img: "https://i.pinimg.com/1200x/b3/4e/72/b34e727e612fd0669515776f8ef0d2c6.jpg",
     ingredients: ["Rice", "2 Eggs Curry", "Dal", "Salad"],
     ingredientsTe: "రైస్, ఎగ్ కర్రీ (2 గుడ్లు), పప్పు, సలాడ్",
@@ -332,7 +348,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ఫిష్ మీల్",
     desc: "Coastal-style tangy fish curry served with steamed rice, dal, and fresh cucumber slices.",
     cats: ["daily-meals"],
-    diet: "nonveg", price: 190, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "440–470 kcal",
+    diet: "nonveg",
+    price: 190,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "440–470 kcal",
     img: "https://i.pinimg.com/736x/70/d1/7a/70d17a9a1059023c17efe2e4b70f3453.jpg",
     ingredients: ["Rice", "Fresh Fish Curry", "Dal", "Salad"],
     ingredientsTe: "రైస్, చేపల పులుసు, పప్పు, సలాడ్",
@@ -348,7 +368,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ప్రాన్స్ మీల్",
     desc: "Spiced prawns masala curry served with rice, dal, and fresh crisp salad.",
     cats: ["daily-meals"],
-    diet: "nonveg", price: 210, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "450–480 kcal",
+    diet: "nonveg",
+    price: 210,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "450–480 kcal",
     img: "https://i.pinimg.com/736x/35/ed/55/35ed55076cddd37eff4550e83f03fb35.jpg",
     ingredients: ["Rice", "Prawns Curry", "Dal", "Salad"],
     ingredientsTe: "రైస్, రొయ్యల కర్రీ, పప్పు, సలాడ్",
@@ -359,15 +383,18 @@ export const PRODUCTS: Product[] = [
     benefits: ["Low in fat & calories", "High in zinc and protein", "Delicate coastal flavour"],
   },
 
-
-  // ======================= 2. CHICKEN MEALS (4 Items) =======================
+  // ======================= 2. CHICKEN MEALS =======================
   {
     id: "chicken-curry-meal",
     name: "Chicken Curry Meal",
     nameTe: "చికెన్ కర్రీ మీల్",
     desc: "Tender chicken pieces cooked in traditional spices served with steamed rice, dal, and salad.",
     cats: ["chicken-meals"],
-    diet: "nonveg", price: 180, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "510–550 kcal",
+    diet: "nonveg",
+    price: 180,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "510–550 kcal",
     img: "https://i.pinimg.com/1200x/ee/13/67/ee13672c4b088a00a2f861bc8859c470.jpg",
     ingredients: ["Rice", "Chicken Curry", "Dal", "Salad"],
     ingredientsTe: "రైస్, చికెన్ కర్రీ, పప్పు, సలాడ్",
@@ -377,17 +404,19 @@ export const PRODUCTS: Product[] = [
     avoidIf: [],
     benefits: ["Rich authentic flavour", "High muscle-building protein", "Wholesome lunch"],
   },
-  
 
-  
-  // ======================= 3. SPECIAL MEALS (5 Items) =======================
+  // ======================= 3. SPECIAL MEALS =======================
   {
     id: "mutton-meal",
     name: "Mutton Meal",
     nameTe: "మటన్ మీల్",
     desc: "Slow-cooked tender mutton curry served with steamed rice, dal, and fresh garden salad.",
     cats: ["special-meals"],
-    diet: "nonveg", price: 240, serving: "1 Meal Box", prepTime: "20 min", kcalBand: "560–610 kcal",
+    diet: "nonveg",
+    price: 240,
+    serving: "1 Meal Box",
+    prepTime: "20 min",
+    kcalBand: "560–610 kcal",
     img: "https://i.pinimg.com/1200x/a7/da/3b/a7da3b3c5d7cb9ad0401d42ee3db1cfb.jpg",
     ingredients: ["Rice", "Mutton Curry", "Dal", "Salad"],
     ingredientsTe: "రైస్, మటన్ కర్రీ, పప్పు, సలాడ్",
@@ -403,7 +432,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ఫిష్ కర్రీ మీల్",
     desc: "Traditional Andhra coastal style fish curry meal with steamed rice and fresh veggies.",
     cats: ["special-meals"],
-    diet: "nonveg", price: 190, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "440–470 kcal",
+    diet: "nonveg",
+    price: 190,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "440–470 kcal",
     img: "https://i.pinimg.com/1200x/63/e3/96/63e3962210c99391662e76d23caa58aa.jpg",
     ingredients: ["Rice", "Fish Curry (Tangy)", "Dal", "Salad"],
     ingredientsTe: "రైస్, చేపల పులుసు, పప్పు, సలాడ్",
@@ -419,7 +452,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ప్రాన్స్ కర్రీ మీల్",
     desc: "Aromatic prawns gravy curry with spices, served with steaming rice and salad.",
     cats: ["special-meals"],
-    diet: "nonveg", price: 210, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "450–480 kcal",
+    diet: "nonveg",
+    price: 210,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "450–480 kcal",
     img: "https://i.pinimg.com/1200x/74/4c/3a/744c3a95ad1d1eaab77b41fc3b9cfb03.jpg",
     ingredients: ["Rice", "Prawns Masala Gravy", "Dal", "Salad"],
     ingredientsTe: "రైస్, రొయ్యల మసాలా కర్రీ, పప్పు, సలాడ్",
@@ -435,7 +472,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "బిర్యానీ మీల్",
     desc: "Low-oil aromatic dum biryani served with protein raita and fresh salad.",
     cats: ["special-meals"],
-    diet: "nonveg", price: 199, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "520–560 kcal",
+    diet: "nonveg",
+    price: 199,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "520–560 kcal",
     img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80",
     ingredients: ["Basmati Rice", "Tender Chicken", "Spices", "Raita", "Salad"],
     ingredientsTe: "బాస్మతి రైస్, చికెన్ ముక్కలు, రైతా, సలాడ్",
@@ -447,15 +488,18 @@ export const PRODUCTS: Product[] = [
     popular: true,
   },
 
-
-  // ======================= 4. DIET MEALS (WEIGHT LOSS) (4 Items) =======================
+  // ======================= 4. DIET MEALS (WEIGHT LOSS) =======================
   {
     id: "weight-loss-meal",
     name: "Weight Loss Meal",
     nameTe: "వెయిట్ లాస్ మీల్",
     desc: "Calorie-counted weight loss box with boiled pulses, mixed greens, fibre-rich millet, and lemon-herb dressing.",
     cats: ["diet-meals"],
-    diet: "vegan", price: 160, serving: "1 Meal Box", prepTime: "12 min", kcalBand: "300–340 kcal",
+    diet: "vegan",
+    price: 160,
+    serving: "1 Meal Box",
+    prepTime: "12 min",
+    kcalBand: "300–340 kcal",
     img: "https://i.pinimg.com/736x/e1/05/76/e1057673573b615ca9b7e574f619a8bc.jpg",
     ingredients: ["Foxtail Millet", "Boiled Moong & Chana", "Steamed Veggies", "Salad"],
     ingredientsTe: "కొర్రలు, మొలకలు, ఉడికించిన కూరగాయలు, సలాడ్",
@@ -472,7 +516,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "హై ప్రొటీన్ మీల్",
     desc: "Maximum protein density meal combining boiled eggs, grilled chicken or paneer with sprouts salad.",
     cats: ["diet-meals"],
-    diet: "nonveg", price: 210, serving: "1 Meal Box", prepTime: "15 min", kcalBand: "420–460 kcal",
+    diet: "nonveg",
+    price: 210,
+    serving: "1 Meal Box",
+    prepTime: "15 min",
+    kcalBand: "420–460 kcal",
     img: "https://i.pinimg.com/736x/2d/ba/1a/2dba1a4c7d023aea42f0142c0b4cb434.jpg",
     ingredients: ["Grilled Chicken (or Paneer)", "2 Egg Whites", "Sprouts Salad", "Green Veggies"],
     ingredientsTe: "గ్రిల్డ్ చికెన్, ఎగ్ వైట్స్, మొలకల సలాడ్, పచ్చని కూరగాయలు",
@@ -489,7 +537,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "లో కార్బ్ మీల్",
     desc: "Strictly minimal carbohydrates with roasted veggies, grilled protein, and healthy seed toppings.",
     cats: ["diet-meals"],
-    diet: "veg", price: 180, serving: "1 Meal Box", prepTime: "12 min", kcalBand: "320–360 kcal",
+    diet: "veg",
+    price: 180,
+    serving: "1 Meal Box",
+    prepTime: "12 min",
+    kcalBand: "320–360 kcal",
     img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
     ingredients: ["Cauliflower Rice / Veggies", "Paneer Cubes", "Spinach", "Flax/Chia Seeds"],
     ingredientsTe: "క్యాలీఫ్లవర్ రైస్, పనీర్ ముక్కలు, పాలకూర, అవిసె గింజలు",
@@ -500,14 +552,18 @@ export const PRODUCTS: Product[] = [
     benefits: ["Only 16g carbs", "Stabilizes insulin and blood sugar", "High satiety"],
   },
 
-  // ======================= 5. SALADS (4 Items) =======================
+  // ======================= 5. SALADS =======================
   {
     id: "green-salad",
     name: "Green Salad",
     nameTe: "గ్రీన్ సలాడ్",
     desc: "Fresh and crunchy cucumber, lettuce, bell peppers, tomatoes, and lime mint dressing.",
     cats: ["salads"],
-    diet: "vegan", price: 80, serving: "250 g bowl", prepTime: "8 min", kcalBand: "90–120 kcal",
+    diet: "vegan",
+    price: 80,
+    serving: "250 g bowl",
+    prepTime: "8 min",
+    kcalBand: "90–120 kcal",
     img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80",
     ingredients: ["Cucumber", "Lettuce", "Capsicum", "Tomato", "Lemon Dressing"],
     ingredientsTe: "దోసకాయ, లెట్యూస్, క్యాప్సికం, టమాటా, నిమ్మ రసం",
@@ -523,7 +579,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "చికెన్ సలాడ్",
     desc: "Grilled shredded chicken breast tossed with crisp lettuce, sweet corn, cherry tomatoes, and yogurt-herb dressing.",
     cats: ["salads"],
-    diet: "nonveg", price: 160, serving: "300 g bowl", prepTime: "10 min", kcalBand: "260–290 kcal",
+    diet: "nonveg",
+    price: 160,
+    serving: "300 g bowl",
+    prepTime: "10 min",
+    kcalBand: "260–290 kcal",
     img: "https://i.pinimg.com/1200x/a6/b0/48/a6b0482fe9ccf6121f34450899dbc644.jpg",
     ingredients: ["Grilled Chicken 120g", "Lettuce", "Sweet Corn", "Tomato", "Curd Herb Dressing"],
     ingredientsTe: "గ్రిల్డ్ చికెన్, లెట్యూస్, స్వీట్ కార్న్, టమాటా, పెరుగు డ్రెస్సింగ్",
@@ -540,7 +600,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ఫ్రూట్ సలాడ్",
     desc: "Cut fresh daily: papaya, green apple, watermelon, pomegranate, and seasonal fruit bowl.",
     cats: ["salads"],
-    diet: "vegan", price: 90, serving: "250 g bowl", prepTime: "5 min", kcalBand: "130–160 kcal",
+    diet: "vegan",
+    price: 90,
+    serving: "250 g bowl",
+    prepTime: "5 min",
+    kcalBand: "130–160 kcal",
     img: "https://i.pinimg.com/1200x/f6/32/f8/f632f8aed551acab34dfc75d6be24cd4.jpg",
     ingredients: ["Papaya", "Apple", "Watermelon", "Pomegranate", "Chia seeds"],
     ingredientsTe: "బొప్పాయి, యాపిల్, పుచ్చకాయ, దానిమ్మ, చియా గింజలు",
@@ -556,7 +620,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "మొలకల సలాడ్",
     desc: "Steamed whole moong & chickpea sprouts with finely chopped cucumber, tomato, lemon, and pink salt.",
     cats: ["salads", "snacks"],
-    diet: "vegan", price: 80, serving: "200 g bowl", prepTime: "5 min", kcalBand: "140–170 kcal",
+    diet: "vegan",
+    price: 80,
+    serving: "200 g bowl",
+    prepTime: "5 min",
+    kcalBand: "140–170 kcal",
     img: "https://i.pinimg.com/1200x/d5/c5/3a/d5c53a3d324681843d40bef636eb217b.jpg",
     ingredients: ["Moong Sprouts", "Chickpea Sprouts", "Cucumber", "Lemon", "Pink Salt"],
     ingredientsTe: "పెసర మొలకలు, శనగ మొలకలు, దోసకాయ, నిమ్మరసం, ఉప్పు",
@@ -568,14 +636,18 @@ export const PRODUCTS: Product[] = [
     popular: true,
   },
 
-  // ======================= 6. ROTI ITEMS (5 Items) =======================
+  // ======================= 6. ROTI ITEMS =======================
   {
     id: "roti",
     name: "Roti",
     nameTe: "రోటీ",
     desc: "Traditional 100% whole wheat flatbread made on tawa without oil.",
     cats: ["roti-items"],
-    diet: "vegan", price: 15, serving: "1 pc", prepTime: "5 min", kcalBand: "75–85 kcal",
+    diet: "vegan",
+    price: 15,
+    serving: "1 pc",
+    prepTime: "5 min",
+    kcalBand: "75–85 kcal",
     img: "https://i.pinimg.com/1200x/2a/27/09/2a27096c2010304ec371e3ee9371a070.jpg",
     ingredients: ["Whole Wheat Flour", "Water", "Salt"],
     ingredientsTe: "గోధుమ పిండి, నీరు, ఉప్పు",
@@ -591,7 +663,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "బటర్ రోటీ",
     desc: "Soft whole wheat roti topped with a light brush of pure cow butter.",
     cats: ["roti-items"],
-    diet: "veg", price: 20, serving: "1 pc", prepTime: "5 min", kcalBand: "95–110 kcal",
+    diet: "veg",
+    price: 20,
+    serving: "1 pc",
+    prepTime: "5 min",
+    kcalBand: "95–110 kcal",
     img: "https://i.pinimg.com/736x/0f/02/46/0f0246ce19275cd8c6b43b85ae9487a7.jpg",
     ingredients: ["Whole Wheat Flour", "Cow Butter", "Water", "Salt"],
     ingredientsTe: "గోధుమ పిండి, ఆవు వెన్న, నీరు",
@@ -607,7 +683,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "పుల్కా",
     desc: "Oil-free puffy whole wheat roti roasted directly over flame. Ultra-light.",
     cats: ["roti-items"],
-    diet: "vegan", price: 15, serving: "1 pc", prepTime: "5 min", kcalBand: "65–75 kcal",
+    diet: "vegan",
+    price: 15,
+    serving: "1 pc",
+    prepTime: "5 min",
+    kcalBand: "65–75 kcal",
     img: "https://i.pinimg.com/736x/88/60/dd/8860dd83b5216542e7977d4e364c81b3.jpg",
     ingredients: ["Whole Wheat Flour", "Water"],
     ingredientsTe: "గోధుమ పిండి, నీరు",
@@ -624,7 +704,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "మల్టీ గ్రెయిన్ రోటీ",
     desc: "Power-packed roti made of wheat, ragi, jowar, bajra, and oats flour.",
     cats: ["roti-items"],
-    diet: "vegan", price: 25, serving: "1 pc", prepTime: "5 min", kcalBand: "85–95 kcal",
+    diet: "vegan",
+    price: 25,
+    serving: "1 pc",
+    prepTime: "5 min",
+    kcalBand: "85–95 kcal",
     img: "https://i.pinimg.com/736x/e0/0b/92/e00b92b9d7a3852eb2c8323c32b531d0.jpg",
     ingredients: ["Wheat", "Ragi", "Jowar", "Bajra", "Oats"],
     ingredientsTe: "గోధుమ, రాగి, జొన్న, సజ్జ, ఓట్స్ పిండి",
@@ -635,15 +719,19 @@ export const PRODUCTS: Product[] = [
     benefits: ["4g fibre per roti", "Rich in iron & calcium", "Low glycemic index"],
     popular: true,
   },
- 
-  // ======================= 7. SNACKS (5 Items) =======================
+
+  // ======================= 7. SNACKS =======================
   {
     id: "boiled-egg",
     name: "Boiled Egg",
     nameTe: "ఉడికించిన గుడ్డు",
     desc: "Hard-boiled farm eggs seasoned with rock salt and crushed black pepper.",
     cats: ["snacks"],
-    diet: "egg", price: 35, serving: "2 whole eggs", prepTime: "5 min", kcalBand: "140–155 kcal",
+    diet: "egg",
+    price: 35,
+    serving: "2 whole eggs",
+    prepTime: "5 min",
+    kcalBand: "140–155 kcal",
     img: "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=800&q=80",
     ingredients: ["Eggs (2)", "Black Pepper", "Rock Salt"],
     ingredientsTe: "గుడ్లు (2), మిరియాల పొడి, ఉప్పు",
@@ -659,7 +747,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ప్రొటీన్ స్నాక్ బాక్స్",
     desc: "Balanced snack box with boiled eggs, paneer/tofu cubes, roasted almonds, and cucumber slices.",
     cats: ["snacks"],
-    diet: "egg", price: 120, serving: "1 Box", prepTime: "5 min", kcalBand: "260–300 kcal",
+    diet: "egg",
+    price: 120,
+    serving: "1 Box",
+    prepTime: "5 min",
+    kcalBand: "260–300 kcal",
     img: "https://i.pinimg.com/736x/9e/bb/75/9ebb75a61012355ec47fb987a6105f05.jpg",
     ingredients: ["Boiled Egg", "Paneer Cubes", "Roasted Almonds", "Cucumber"],
     ingredientsTe: "ఉడికించిన గుడ్డు, పనీర్ ముక్కలు, బాదం, దోసకాయ",
@@ -670,14 +762,17 @@ export const PRODUCTS: Product[] = [
     benefits: ["18g mixed proteins", "Healthy fats from nuts", "Zero junk replacement"],
     popular: true,
   },
-  
   {
     id: "sprouts-chaat",
     name: "Sprouts Chaat",
     nameTe: "మొలకల చాట్",
     desc: "Zesty steamed moong sprouts tossed with onions, tomatoes, coriander, lemon, and chaat spices.",
     cats: ["snacks"],
-    diet: "vegan", price: 79, serving: "180 g cup", prepTime: "5 min", kcalBand: "150–180 kcal",
+    diet: "vegan",
+    price: 79,
+    serving: "180 g cup",
+    prepTime: "5 min",
+    kcalBand: "150–180 kcal",
     img: "https://i.pinimg.com/736x/56/07/b8/5607b8d5a602203f983065cc1cae68c4.jpg",
     ingredients: ["Moong Sprouts", "Onion", "Tomato", "Lemon", "Chaat Masala"],
     ingredientsTe: "పెసర మొలకలు, ఉల్లి, టమాటా, నిమ్మ, చాట్ మసాలా",
@@ -689,16 +784,18 @@ export const PRODUCTS: Product[] = [
     popular: true,
   },
 
- 
-
-  // ======================= 9. HEALTHY SMOOTHIES (5 Items) =======================
+  // ======================= 9. HEALTHY SMOOTHIES =======================
   {
     id: "banana-smoothie",
     name: "Banana Smoothie",
     nameTe: "బనానా స్మూతీ",
     desc: "Fresh banana blended with cold milk, rolled oats, and chia seeds. Natural energy boost.",
     cats: ["smoothies"],
-    diet: "veg", price: 90, serving: "300 ml", prepTime: "5 min", kcalBand: "220–250 kcal",
+    diet: "veg",
+    price: 90,
+    serving: "300 ml",
+    prepTime: "5 min",
+    kcalBand: "220–250 kcal",
     img: "https://i.pinimg.com/1200x/e7/b9/ba/e7b9bab4908904dd1be045dd1338d77c.jpg",
     ingredients: ["Banana", "Milk", "Rolled Oats", "Chia Seeds"],
     ingredientsTe: "అరటిపండు, పాలు, ఓట్స్, చియా గింజలు",
@@ -708,14 +805,17 @@ export const PRODUCTS: Product[] = [
     avoidIf: ["Lactose Intolerance"],
     benefits: ["Rich in potassium", "Instant healthy carbohydrates", "No artificial sugar"],
   },
-  
   {
     id: "mango-smoothie",
     name: "Mango Smoothie",
     nameTe: "మ్యాంగో స్మూతీ",
     desc: "Juicy ripe mango pulp blended with chilled low-fat milk and a hint of cardamom.",
     cats: ["smoothies"],
-    diet: "veg", price: 110, serving: "300 ml", prepTime: "5 min", kcalBand: "210–240 kcal",
+    diet: "veg",
+    price: 110,
+    serving: "300 ml",
+    prepTime: "5 min",
+    kcalBand: "210–240 kcal",
     img: "https://i.pinimg.com/736x/41/5b/04/415b04690d8f2c91a0937158e2cb3624.jpg",
     ingredients: ["Ripe Mango", "Milk", "Cardamom"],
     ingredientsTe: "మామిడి పండు, పాలు, ఏలకులు",
@@ -731,7 +831,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "చాక్లెట్ స్మూతీ",
     desc: "Unsweetened pure cocoa blended with milk, banana, and peanut butter for a healthy dessert feel.",
     cats: ["smoothies"],
-    diet: "veg", price: 120, serving: "300 ml", prepTime: "5 min", kcalBand: "260–290 kcal",
+    diet: "veg",
+    price: 120,
+    serving: "300 ml",
+    prepTime: "5 min",
+    kcalBand: "260–290 kcal",
     img: "https://i.pinimg.com/1200x/46/af/91/46af91f517e96fbc0bb26cddc16903d4.jpg",
     ingredients: ["Raw Cocoa Powder", "Milk", "Banana", "Peanut Butter"],
     ingredientsTe: "కోకో పౌడర్, పాలు, అరటిపండు, పీనట్ బటర్",
@@ -748,7 +852,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ఖర్జూర స్మూతీ",
     desc: "Natural sweet Arabian dates blended with chilled milk and almonds for iron-rich energy.",
     cats: ["smoothies"],
-    diet: "veg", price: 110, serving: "300 ml", prepTime: "5 min", kcalBand: "250–280 kcal",
+    diet: "veg",
+    price: 110,
+    serving: "300 ml",
+    prepTime: "5 min",
+    kcalBand: "250–280 kcal",
     img: "https://i.pinimg.com/736x/31/85/38/318538bbf89f7e5361d8eb6c7743df2b.jpg",
     ingredients: ["Arabian Dates", "Milk", "Almonds"],
     ingredientsTe: "ఖర్జూరాలు, పాలు, బాదం",
@@ -759,14 +867,18 @@ export const PRODUCTS: Product[] = [
     benefits: ["Natural iron & magnesium source", "Zero refined sugars", "Instant stamina"],
   },
 
-  // ======================= 10. FRESH JUICES (5 Items) =======================
+  // ======================= 10. FRESH JUICES =======================
   {
     id: "watermelon-juice",
     name: "Watermelon Juice",
     nameTe: "పుచ్చకాయ జ్యూస్",
     desc: "100% freshly pressed watermelon with fresh mint and lemon. Hydrating summer cooler.",
     cats: ["fresh-juices"],
-    diet: "vegan", price: 60, serving: "250 ml", prepTime: "5 min", kcalBand: "70–90 kcal",
+    diet: "vegan",
+    price: 60,
+    serving: "250 ml",
+    prepTime: "5 min",
+    kcalBand: "70–90 kcal",
     img: "https://i.pinimg.com/736x/18/e7/da/18e7da068367328100f4e7812aa840e7.jpg",
     ingredients: ["Watermelon", "Lemon", "Mint"],
     ingredientsTe: "పుచ్చకాయ, నిమ్మ, పుదీనా",
@@ -783,7 +895,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "ఆరెంజ్ జ్యూస్",
     desc: "Fresh cold-pressed sweet oranges packed with natural immunity-boosting Vitamin C.",
     cats: ["fresh-juices"],
-    diet: "vegan", price: 80, serving: "250 ml", prepTime: "5 min", kcalBand: "100–120 kcal",
+    diet: "vegan",
+    price: 80,
+    serving: "250 ml",
+    prepTime: "5 min",
+    kcalBand: "100–120 kcal",
     img: "https://i.pinimg.com/736x/b0/7a/8d/b07a8da05c4ff42119ae0a2ae0aef279.jpg",
     ingredients: ["Fresh Oranges"],
     ingredientsTe: "తాజా నారింజ పండ్లు",
@@ -799,7 +915,11 @@ export const PRODUCTS: Product[] = [
     nameTe: "పైనాపిల్ జ్యూస్",
     desc: "Tangy sweet pineapple juice rich in bromelain enzymes that promote smooth digestion.",
     cats: ["fresh-juices"],
-    diet: "vegan", price: 80, serving: "250 ml", prepTime: "5 min", kcalBand: "110–130 kcal",
+    diet: "vegan",
+    price: 80,
+    serving: "250 ml",
+    prepTime: "5 min",
+    kcalBand: "110–130 kcal",
     img: "https://i.pinimg.com/736x/a1/f6/b5/a1f6b5b9c6152fcf586461c483ec2dfa.jpg",
     ingredients: ["Fresh Pineapple", "Mint"],
     ingredientsTe: "అనాస పండు, పుదీనా",
@@ -809,14 +929,17 @@ export const PRODUCTS: Product[] = [
     avoidIf: ["Severe Acidity"],
     benefits: ["Contains bromelain digestive enzyme", "Reduces joint inflammation", "Fresh & cooling"],
   },
- 
   {
     id: "carrot-juice",
     name: "Carrot Juice",
     nameTe: "క్యారెట్ జ్యూస్",
     desc: "Cold-pressed sweet carrots with a touch of ginger for eye health and glowing skin.",
     cats: ["fresh-juices"],
-    diet: "vegan", price: 80, serving: "250 ml", prepTime: "5 min", kcalBand: "85–105 kcal",
+    diet: "vegan",
+    price: 80,
+    serving: "250 ml",
+    prepTime: "5 min",
+    kcalBand: "85–105 kcal",
     img: "https://i.pinimg.com/736x/5e/35/bb/5e35bb6cde159364b352f3eb098f1bb1.jpg",
     ingredients: ["Red Carrots", "Ginger", "Lemon"],
     ingredientsTe: "క్యారెట్లు, అల్లం, నిమ్మ",
@@ -826,8 +949,6 @@ export const PRODUCTS: Product[] = [
     avoidIf: [],
     benefits: ["High Vitamin A & Beta-carotene", "Supports liver detox", "No added sugar"],
   },
-
-  
 ];
 
 export const getProduct = (id: string) => PRODUCTS.find((p) => p.id === id);
