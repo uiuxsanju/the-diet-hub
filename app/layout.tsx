@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, IBM_Plex_Mono, Noto_Sans_Telugu } from "next/font/google";
-import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WaFloat } from "@/components/layout/WaFloat";
@@ -24,36 +23,67 @@ const telugu = Noto_Sans_Telugu({
 });
 
 export const metadata: Metadata = {
-  title: "THE DIET HUB — Kadapa | Eat Right · Live Right · Feel Right",
+  metadataBase: new URL("https://www.thediethubfoods.in"),
+  title: {
+    default: "The Diet Hub | Diet Consultancy & Healthy Food Kitchen in Kadapa",
+    template: "%s | The Diet Hub Kadapa",
+  },
   description:
-    "Personalised diet planning, weight loss and weight gain programmes, diabetes and BP food guidance, fresh cold-pressed juices and workout smoothies in Kadapa.",
+    "The Diet Hub Kadapa — personalised diet plans, weight-loss programs, cold-pressed juices & healthy meals near VJ Junction, Kadapa. Eat Right, Live Right, Feel Right.",
   keywords: [
-    "diet hub kadapa",
-    "dietician kadapa",
-    "diet food kadapa",
-    "weight loss kadapa",
-    "healthy meal plan kadapa",
-    "fresh juice kadapa",
+    "The Diet Hub",
+    "diet consultancy Kadapa",
+    "weight loss Kadapa",
+    "healthy food Kadapa",
+    "diet plan Kadapa",
+    "nutritionist Kadapa",
   ],
+  authors: [{ name: "The Diet Hub" }],
   openGraph: {
-    title: "THE DIET HUB — Kadapa",
-    description: "Eat Right · Live Right · Feel Right",
+    title: "The Diet Hub | Diet Consultancy Kadapa",
+    description:
+      "Personalised diet plans, weight-loss programs & healthy meals in Kadapa.",
+    url: "https://www.thediethubfoods.in",
+    siteName: "The Diet Hub",
+    images: ["/logo-full.png"],
+    locale: "en_IN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Diet Hub | Diet Consultancy Kadapa",
+    description: "Personalised diet plans & healthy meals in Kadapa.",
+    images: ["/logo-full.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  verification: {
+    google: "PASTE_SEARCH_CONSOLE_CODE_HERE",
   },
 };
 
-export const viewport: Viewport = { themeColor: "#1f7a3d" };
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0B1F13",
+};
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${display.variable} ${body.variable} ${num.variable} ${telugu.variable} antialiased`}
       >
         <Navbar />
-        <main className="min-h-dvh pb-16 lg:pb-0">{children}</main>
+        <main>{children}</main>
         <Footer />
-        <WaFloat />
       </body>
     </html>
   );
