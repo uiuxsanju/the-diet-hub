@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Manrope, IBM_Plex_Mono, Noto_Sans_Telugu } from "next/font/google";
+import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WaFloat } from "@/components/layout/WaFloat";
-import { CONFIG } from "@/lib/config";
 
 const display = Fraunces({
   subsets: ["latin"],
@@ -84,6 +84,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WaFloat />
       </body>
     </html>
   );
