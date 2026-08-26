@@ -60,7 +60,8 @@ export type Product = {
   price: number;
   serving: string;
   prepTime: string;
-  bestTime?: string; // Optional field used in menu detail pages
+  bestTime?: string;      // UI లో వాడుతున్న ఫీల్డ్
+  enquiryOnly?: boolean;  // UI లో వాడుతున్న ఫీల్డ్
   kcalBand: string;
   img: string;
   ingredients: string[];
@@ -72,7 +73,6 @@ export type Product = {
   benefits: string[];
   popular?: boolean;
 };
-
 export const PRODUCTS: Product[] = [
   // ======================= 1. DAILY MEALS =======================
   {
